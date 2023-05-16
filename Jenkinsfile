@@ -1,6 +1,11 @@
 pipeline {
 	 agent any
 	 stages {
+		 stage("Go to directort"){
+			 steps{
+			 	bat 'cd qa-academy-at7-module4-api-automation-main'
+			 }
+		 }
 		stage("buildOther") {
 			 steps {
 				 bat 'gradle clean build'
