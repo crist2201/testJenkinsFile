@@ -3,12 +3,14 @@ pipeline {
 	 stages {
 		stage("buildOther") {
 			 steps {
-				 bat 'qa-academy-at7-module4-api-automation-main/gradle clean build'
+				 bat 'cd qa-academy-at7-module4-api-automation-main'
+				 bat 'gradle clean build'
 			 }
 		}
 		 stage("testOther") {
 			 steps {
-				 bat 'qa-academy-at7-module4-api-automation-main/gradle clean executeFeature -D environmentName="QA" -DcucumberTags="@regression"'
+				 bat 'cd qa-academy-at7-module4-api-automation-main'
+				 bat 'gradle clean executeFeature -D environmentName="QA" -DcucumberTags="@regression"'
 			 }
 		 }
 		 stage("deployOther") {
